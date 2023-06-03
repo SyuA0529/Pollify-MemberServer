@@ -1,0 +1,32 @@
+  jwt:
+    secret:
+      key: BExbuXAWNp6By1nefaPHt0VFoqImQ6nZ92a8kbHE
+
+  message:
+    topic:
+      saveMember: saveMember
+
+  spring:
+    datasource:
+      url: jdbc:h2:tcp://localhost/~/memberserver
+      driver-class-name: org.h2.Driver
+      username: sa
+
+    jpa:
+      hibernate:
+        ddl-auto: create
+      properties:
+        hibernate:
+          format_sql: true
+
+    kafka:
+      bootstrap-servers: localhost:31234
+      consumer:
+        group-id: memberserver
+        auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  logging:
+    level:
+      org.hibernate.sql: debug
