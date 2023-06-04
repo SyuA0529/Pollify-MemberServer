@@ -30,8 +30,7 @@ public class MemberService {
 
     @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto) {
-        Member savedMember = memberRepository.save(signUpRequestDto.convertToMember(passwordEncoder));
-        memberRepository.flush();
+        Member savedMember = memberRepository.saveAndFlush(signUpRequestDto.convertToMember(passwordEncoder));
         try {
             sendMemberToKafka(savedMember);
         } catch (Exception e) {
