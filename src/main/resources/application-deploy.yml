@@ -27,3 +27,7 @@ spring:
 logging:
   level:
     org.hibernate.sql: warn
+
+
+server:
+  port: 8080
