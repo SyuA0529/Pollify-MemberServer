@@ -8,16 +8,17 @@ message:
 
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/memberserver
-    driver-class-name: org.h2.Driver
-    username: sa
+    url: jdbc:postgresql:tcp://${DB_HOST}:${DB_PORT}/~/memberserver
+    driver-class-name: org.postgresql.Driver
+    username: pollify
+    password: pollify
 
   jpa:
     hibernate:
       ddl-auto: none
 
   kafka:
-    bootstrap-servers:
+    bootstrap-servers: ${KAFKA_HOST}:${KAFKA_PORT}
     producer:
       group-id: memberserver
     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -25,7 +26,4 @@ spring:
 
 logging:
   level:
-    org.hibernate.sql: debug
-
-server:
-  port: 10000
+    org.hibernate.sql: warn
