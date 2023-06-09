@@ -17,15 +17,15 @@ spec:
           image: syua0529/memberserver
           env:
             - name: DB_HOST
-              value: member-database-service.member-service.svc.cluster.local
+              value: "member-database-service.member-service.svc.cluster.local"
             - name: DB_PORT
               value: 5432
             - name: DB_USER
-              value: pollify
+              value: "pollify"
             - name: DB_PASSWD
-              value: pollify
+              value: "pollify"
             - name: KAFKA_HOST
-              value: kafka.kafka.svc.cluster.local
+              value: "kafka.kafka.svc.cluster.local"
             - name: KAFKA_PORT
               value: 9092
           ports:
