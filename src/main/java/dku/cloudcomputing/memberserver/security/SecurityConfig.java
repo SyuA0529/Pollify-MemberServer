@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .sessionManagement((sessionManage) -> sessionManage.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .cors(corsConfigurer -> corsConfigurer.configurationSource(request -> {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
-                    corsConfiguration.setAllowedOrigins(List.of("*"));
+                    corsConfiguration.setAllowedOriginPatterns(List.of("*"));
                     corsConfiguration.setAllowedMethods(List.of("GET", "POST", "DELETE"));
                     corsConfiguration.setAllowedHeaders(List.of("*"));
                     corsConfiguration.addExposedHeader("*");
